@@ -4,6 +4,12 @@ Class {
 	#category : #'Shelling-Model'
 }
 
+{ #category : #accessing }
+ShellingTurtle class >> entityName [
+
+	^ 'Turtle'
+]
+
 { #category : #pov }
 ShellingTurtle >> pov [
 

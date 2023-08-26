@@ -4,6 +4,12 @@ Class {
 	#category : #'Shelling-Model'
 }
 
+{ #category : #accessing }
+ShellingCell class >> entityName [
+
+	^ 'Cell'
+]
+
 { #category : #pov }
 ShellingCell >> pov [
 
