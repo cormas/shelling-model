@@ -12,7 +12,7 @@ Class {
 { #category : #accessing }
 ShellingModel class >> density [
 
-	^ 0.9
+	^ 0.95
 ]
 
 { #category : #accessing }
@@ -68,7 +68,7 @@ ShellingModel >> numberOfAgents [
 { #category : #control }
 ShellingModel >> step: anObject [
 
-	"do nothing"
+	self askRandom: ShellingAgent toDo: #step
 ]
 
 { #category : #accessing }
