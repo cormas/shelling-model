@@ -1,1 +1,1 @@
-Package { #name : #'Shelling-Model' }
+Package { #name : 'Shelling-Model' }

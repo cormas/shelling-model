@@ -1,17 +1,13 @@
 Class {
-	#name : #ShellingFrog,
-	#superclass : #ShellingAgent,
-	#category : #'Shelling-Model'
+	#name : 'ShellingFrog',
+	#superclass : 'ShellingAgent',
+	#category : 'Shelling-Model',
+	#package : 'Shelling-Model'
 }
 
-{ #category : #accessing }
-ShellingFrog class >> entityName [
-
-	^ 'Frog'
-]
-
-{ #category : #pov }
+{ #category : 'pov' }
 ShellingFrog >> pov [
 
-	^ Color green
+	<pov>
+	^ Color fromHexString: '00b44c'
 ]

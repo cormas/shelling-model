@@ -1,17 +1,13 @@
 Class {
-	#name : #ShellingTurtle,
-	#superclass : #ShellingAgent,
-	#category : #'Shelling-Model'
+	#name : 'ShellingTurtle',
+	#superclass : 'ShellingAgent',
+	#category : 'Shelling-Model',
+	#package : 'Shelling-Model'
 }
 
-{ #category : #accessing }
-ShellingTurtle class >> entityName [
-
-	^ 'Turtle'
-]
-
-{ #category : #pov }
+{ #category : 'pov' }
 ShellingTurtle >> pov [
 
+	<pov>
 	^ Color red
 ]

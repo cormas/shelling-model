@@ -1,17 +1,13 @@
 Class {
-	#name : #ShellingCell,
-	#superclass : #CMSpatialEntityElement,
-	#category : #'Shelling-Model'
+	#name : 'ShellingCell',
+	#superclass : 'CMSpatialEntityElement',
+	#category : 'Shelling-Model',
+	#package : 'Shelling-Model'
 }
 
-{ #category : #accessing }
-ShellingCell class >> entityName [
-
-	^ 'Cell'
-]
-
-{ #category : #pov }
+{ #category : 'pov' }
 ShellingCell >> pov [
 
+	<pov>
 	^ Color black
 ]

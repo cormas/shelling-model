@@ -1,48 +1,73 @@
 Class {
-	#name : #ShellingAgent,
-	#superclass : #CMAgent,
+	#name : 'ShellingAgent',
+	#superclass : 'CMAgent',
 	#traits : 'TCMLocated',
 	#classTraits : 'TCMLocated classTrait',
-	#category : #'Shelling-Model'
+	#classInstVars : [
+		'neighbourhoodSize',
+		'percentageOfSimilarAgentsWanted'
+	],
+	#category : 'Shelling-Model',
+	#package : 'Shelling-Model'
 }
 
-{ #category : #'as yet unclassified' }
-ShellingAgent class >> neighbourhoodSize [
-
-	^ 8
+{ #category : 'initialization' }
+ShellingAgent class >> initializeParameters [
+	
+	super initializeParameters.
+	neighbourhoodSize := 8.
+	percentageOfSimilarAgentsWanted := 0.3
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
+ShellingAgent class >> neighbourhoodSize [
+
+	^ neighbourhoodSize
+]
+
+{ #category : 'as yet unclassified' }
+ShellingAgent class >> neighbourhoodSize: aNumber [
+
+	neighbourhoodSize := aNumber
+]
+
+{ #category : 'as yet unclassified' }
 ShellingAgent class >> numberOfSimilarNeighboursWanted [
 
 	^ (self percentageOfSimilarAgentsWanted * self neighbourhoodSize) ceiling
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ShellingAgent class >> percentageOfSimilarAgentsWanted [
 
-	^ 0.3
+	^ percentageOfSimilarAgentsWanted
 ]
 
-{ #category : #testing }
+{ #category : 'as yet unclassified' }
+ShellingAgent class >> percentageOfSimilarAgentsWanted: aNumber [
+
+	percentageOfSimilarAgentsWanted := aNumber
+]
+
+{ #category : 'testing' }
 ShellingAgent >> isHappy [
 
 	^ self numberOfSimilarNeighbours >= self class numberOfSimilarNeighboursWanted
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ShellingAgent >> numberOfSimilarNeighbours [
 
 	^ (self similarAgentsWithinRadius: 1) size
 ]
 
-{ #category : #pov }
+{ #category : 'pov' }
 ShellingAgent >> pov [
-
+	
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ShellingAgent >> sizeOfPOV [
 
 	^ self isHappy
@@ -50,7 +75,7 @@ ShellingAgent >> sizeOfPOV [
 		ifFalse: [ 10 ]
 ]
 
-{ #category : #control }
+{ #category : 'control' }
 ShellingAgent >> step [
 
 	self isHappy ifFalse: [
