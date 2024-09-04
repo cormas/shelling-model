@@ -60,6 +60,12 @@ ShellingModel class >> numberOfRows: aNumber [
 	numberOfRows := aNumber
 ]
 
+{ #category : 'tests - printing' }
+ShellingModel class >> prefix [
+
+	^ 'Shelling'
+]
+
 { #category : 'init' }
 ShellingModel >> init [
 
