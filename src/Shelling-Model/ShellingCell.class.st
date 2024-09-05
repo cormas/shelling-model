@@ -9,5 +9,5 @@ Class {
 ShellingCell >> pov [
 
 	<pov>
-	^ Color black
+	^ CMPointOfView color: Color black
 ]

@@ -64,15 +64,10 @@ ShellingAgent >> numberOfSimilarNeighbours [
 { #category : 'pov' }
 ShellingAgent >> pov [
 	
-	self subclassResponsibility
-]
-
-{ #category : 'accessing' }
-ShellingAgent >> sizeOfPOV [
-
-	^ self isHappy
-		ifTrue: [ 25 ]
-		ifFalse: [ 10 ]
+	^ CMPointOfView size: (
+		self isHappy
+			ifTrue: [ 25 ]
+			ifFalse: [ 10 ])
 ]
 
 { #category : 'control' }

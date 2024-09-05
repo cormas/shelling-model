@@ -9,5 +9,7 @@ Class {
 ShellingTurtle >> pov [
 
 	<pov>
-	^ Color red
+	^ super pov
+		color: Color red;
+		yourself
 ]

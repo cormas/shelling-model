@@ -9,5 +9,7 @@ Class {
 ShellingFrog >> pov [
 
 	<pov>
-	^ Color fromHexString: '00b44c'
+	^ super pov
+		color: (Color fromHexString: '00b44c');
+		yourself
 ]
