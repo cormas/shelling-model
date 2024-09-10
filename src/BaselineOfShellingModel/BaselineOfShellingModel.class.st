@@ -14,5 +14,5 @@ BaselineOfShellingModel >> baseline: spec [
 		"Packages"
 		spec
 			package: 'Shelling-Model';
-			package: 'Shelling-Tests' with: [ spec requires: #( 'Shelling-Model' ) ] ]
+			package: 'Shelling-Model-Tests' with: [ spec requires: #( 'Shelling-Model' ) ] ]
 ]
