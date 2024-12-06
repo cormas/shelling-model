@@ -55,6 +55,12 @@ ShellingAgent >> isHappy [
 	^ self numberOfSimilarNeighbours >= self class numberOfSimilarNeighboursWanted
 ]
 
+{ #category : 'accessing' }
+ShellingAgent >> move [
+	<action>
+	self randomJumpConstrainedBy: [ :cell | cell hasNoOccupants ]
+]
+
 { #category : 'as yet unclassified' }
 ShellingAgent >> numberOfSimilarNeighbours [
 
@@ -73,6 +79,5 @@ ShellingAgent >> pov [
 { #category : 'control' }
 ShellingAgent >> step [
 
-	self isHappy ifFalse: [
-		self randomJumpConstrainedBy: [ :cell | cell hasNoOccupants ] ]
+	self isHappy ifFalse: [ self move ]
 ]
