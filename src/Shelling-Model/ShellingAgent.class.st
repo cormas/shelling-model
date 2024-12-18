@@ -70,10 +70,10 @@ ShellingAgent >> numberOfSimilarNeighbours [
 { #category : 'pov' }
 ShellingAgent >> pov [
 	
-	^ CMPointOfView size: (
+	^ CMPointOfView shape: #square size: (
 		self isHappy
-			ifTrue: [ 25 ]
-			ifFalse: [ 10 ])
+			ifTrue: [ 1 ]
+			ifFalse: [ 0.5 ])
 ]
 
 { #category : 'control' }
