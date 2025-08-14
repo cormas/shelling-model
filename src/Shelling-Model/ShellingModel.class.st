@@ -37,6 +37,12 @@ ShellingModel class >> initializeParameters [
 ]
 
 { #category : 'accessing' }
+ShellingModel class >> modelName [
+	
+	^ 'Shelling'
+]
+
+{ #category : 'accessing' }
 ShellingModel class >> numberOfColumns [
 
 	^ numberOfColumns
