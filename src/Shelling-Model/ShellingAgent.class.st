@@ -1,8 +1,6 @@
 Class {
 	#name : 'ShellingAgent',
 	#superclass : 'CMAgent',
-	#traits : 'TCMLocated',
-	#classTraits : 'TCMLocated classTrait',
 	#classInstVars : [
 		'neighbourhoodSize',
 		'percentageOfSimilarAgentsWanted'

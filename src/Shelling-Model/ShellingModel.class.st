@@ -1,11 +1,6 @@
 Class {
 	#name : 'ShellingModel',
 	#superclass : 'CMAbstractModel',
-	#instVars : [
-		'theCells',
-		'theFrogs',
-		'theTurtles'
-	],
 	#classInstVars : [
 		'density',
 		'numberOfRows',
@@ -91,16 +86,6 @@ ShellingModel >> init [
 		randomlyLocatedAloneEntities: ShellingFrog
 ]
 
-{ #category : 'initialization' }
-ShellingModel >> initialize [
-
-	super initialize.
-	
-	theCells := OrderedCollection new.
-	theTurtles := OrderedCollection new.
-	theFrogs := OrderedCollection new.
-]
-
 { #category : 'as yet unclassified' }
 ShellingModel >> numberOfAgents [
 
@@ -118,14 +103,14 @@ ShellingModel >> numberOfHappyAgents [
 ShellingModel >> numberOfHappyFrogs [
 
 	<probeNamed: 'Number of happy frogs' color: '00b44c'>
-	^ theFrogs count: [ :each | each isHappy ]
+	^ (self @@ ShellingFrog) count: [ :each | each isHappy ]
 ]
 
 { #category : 'probes' }
 ShellingModel >> numberOfHappyTurtles [
 
 	<probeNamed: 'Number of happy turtles' color: 'FF0000'>
-	^ theTurtles count: [ :each | each isHappy ]
+	^ (self @@ ShellingTurtle) count: [ :each | each isHappy ]
 ]
 
 { #category : 'control' }
@@ -133,25 +118,4 @@ ShellingModel >> step [
 
 	<control>
 	self askRandom: ShellingAgent toDo: #step
-]
-
-{ #category : 'accessing' }
-ShellingModel >> theCells [
-
-	<getterFor: #ShellingCell>
-	^ theCells
-]
-
-{ #category : 'accessing' }
-ShellingModel >> theFrogs [
-
-	<getterFor: #ShellingFrog>
-	^ theFrogs
-]
-
-{ #category : 'accessing' }
-ShellingModel >> theTurtles [
-
-	<getterFor: #ShellingTurtle>
-	^ theTurtles
 ]
