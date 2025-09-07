@@ -1,6 +1,6 @@
 Class {
 	#name : 'ShellingCell',
-	#superclass : 'CMSpatialEntityElement',
+	#superclass : 'CMCell',
 	#category : 'Shelling-Model',
 	#package : 'Shelling-Model'
 }
