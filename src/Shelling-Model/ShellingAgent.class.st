@@ -56,7 +56,7 @@ ShellingAgent >> isHappy [
 { #category : 'accessing' }
 ShellingAgent >> move [
 	<action>
-	self randomJumpConstrainedBy: [ :cell | cell hasNoOccupants ]
+	self randomJumpConstrainedBy: [ :aCell | aCell hasNoOccupants ]
 ]
 
 { #category : 'as yet unclassified' }
