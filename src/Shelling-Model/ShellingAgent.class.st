@@ -2,42 +2,15 @@ Class {
 	#name : 'ShellingAgent',
 	#superclass : 'CMAgent',
 	#classInstVars : [
-		'neighbourhoodSize',
 		'percentageOfSimilarAgentsWanted'
 	],
 	#category : 'Shelling-Model',
 	#package : 'Shelling-Model'
 }
 
-{ #category : 'initialization' }
-ShellingAgent class >> initializeParameters [
-	
-	super initializeParameters.
-	neighbourhoodSize := 8.
-	percentageOfSimilarAgentsWanted := 0.3
-]
-
-{ #category : 'as yet unclassified' }
-ShellingAgent class >> neighbourhoodSize [
-
-	^ neighbourhoodSize
-]
-
-{ #category : 'as yet unclassified' }
-ShellingAgent class >> neighbourhoodSize: aNumber [
-
-	neighbourhoodSize := aNumber
-]
-
-{ #category : 'as yet unclassified' }
-ShellingAgent class >> numberOfSimilarNeighboursWanted [
-
-	^ (self percentageOfSimilarAgentsWanted * self neighbourhoodSize) ceiling
-]
-
 { #category : 'as yet unclassified' }
 ShellingAgent class >> percentageOfSimilarAgentsWanted [
-
+	<parameterFloatMin: 0 max: 1 default: 0.3>
 	^ percentageOfSimilarAgentsWanted
 ]
 
@@ -50,7 +23,7 @@ ShellingAgent class >> percentageOfSimilarAgentsWanted: aNumber [
 { #category : 'testing' }
 ShellingAgent >> isHappy [
 
-	^ self numberOfSimilarNeighbours >= self class numberOfSimilarNeighboursWanted
+	^ self numberOfSimilarNeighbours >= self numberOfSimilarNeighboursWanted
 ]
 
 { #category : 'accessing' }
@@ -63,6 +36,12 @@ ShellingAgent >> move [
 ShellingAgent >> numberOfSimilarNeighbours [
 
 	^ (self similarAgentsWithinRadius: 1) size
+]
+
+{ #category : 'as yet unclassified' }
+ShellingAgent >> numberOfSimilarNeighboursWanted [
+
+	^ (self class percentageOfSimilarAgentsWanted * self cell neighbourhood size) ceiling
 ]
 
 { #category : 'pov' }

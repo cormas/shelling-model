@@ -1,6 +1,11 @@
 Class {
 	#name : 'ShellingModel',
-	#superclass : 'CMAbstractModel',
+	#superclass : 'CMModel',
+	#instVars : [
+		'numberOfRows',
+		'numberOfColumns',
+		'density'
+	],
 	#classInstVars : [
 		'density',
 		'numberOfRows',
@@ -11,54 +16,9 @@ Class {
 }
 
 { #category : 'accessing' }
-ShellingModel class >> density [
-
-	^ density
-]
-
-{ #category : 'accessing' }
-ShellingModel class >> density: aNumber [
-
-	density := aNumber
-]
-
-{ #category : 'initialization' }
-ShellingModel class >> initializeParameters [
-
-	super initializeParameters.
-	density := 0.95.
-	numberOfRows := 27.
-	numberOfColumns := 27
-]
-
-{ #category : 'accessing' }
 ShellingModel class >> modelName [
 	
 	^ 'Shelling'
-]
-
-{ #category : 'accessing' }
-ShellingModel class >> numberOfColumns [
-
-	^ numberOfColumns
-]
-
-{ #category : 'accessing' }
-ShellingModel class >> numberOfColumns: aNumber [
-
-	numberOfColumns := aNumber
-]
-
-{ #category : 'accessing' }
-ShellingModel class >> numberOfRows [
-
-	^ numberOfRows
-]
-
-{ #category : 'accessing' }
-ShellingModel class >> numberOfRows: aNumber [
-
-	numberOfRows := aNumber
 ]
 
 { #category : 'tests - printing' }
@@ -67,13 +27,25 @@ ShellingModel class >> prefix [
 	^ 'Shelling'
 ]
 
+{ #category : 'parameters' }
+ShellingModel >> density [
+	<parameterFloatMin: 0 max: 1 default: 0.95>
+	^ density
+]
+
+{ #category : 'parameters' }
+ShellingModel >> density: anObject [
+
+	density := anObject
+]
+
 { #category : 'init' }
 ShellingModel >> init [
 
 	<init>
 	self
-		createGridNumberOfRows: self class numberOfRows
-		numberOfColumns: self class numberOfColumns
+		createGridNumberOfRows: numberOfRows
+		numberOfColumns: numberOfColumns
 		neighbourhood: 8
 		closed: false.
 		
@@ -89,7 +61,19 @@ ShellingModel >> init [
 { #category : 'as yet unclassified' }
 ShellingModel >> numberOfAgents [
 
-	^ (self class density * self class numberOfRows * self class numberOfColumns) asInteger
+	^ (density * numberOfRows * numberOfColumns) asInteger
+]
+
+{ #category : 'parameters' }
+ShellingModel >> numberOfColumns [
+	<parameterIntegerMin: 1 max: 300 default: 27>
+	^ numberOfColumns
+]
+
+{ #category : 'parameters' }
+ShellingModel >> numberOfColumns: anObject [
+
+	numberOfColumns := anObject
 ]
 
 { #category : 'probes' }
@@ -111,6 +95,18 @@ ShellingModel >> numberOfHappyTurtles [
 
 	<probeNamed: 'Number of happy turtles' color: 'FF0000'>
 	^ (self @@ ShellingTurtle) count: [ :each | each isHappy ]
+]
+
+{ #category : 'parameters' }
+ShellingModel >> numberOfRows [
+	<parameterIntegerMin: 1 max: 300 default: 27>
+	^ numberOfRows
+]
+
+{ #category : 'parameters' }
+ShellingModel >> numberOfRows: anObject [
+
+	numberOfRows := anObject
 ]
 
 { #category : 'control' }
