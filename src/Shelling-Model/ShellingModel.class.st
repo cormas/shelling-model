@@ -78,12 +78,12 @@ ShellingModel >> init [
 		closed: false.
 		
 	self
-		createN: (self numberOfAgents / 2) asInteger
-		randomlyLocatedAloneEntities: ShellingTurtle.
+		create: (self numberOfAgents / 2) asInteger
+		randomlyLocatedAloneEntitiesOfClass: ShellingTurtle.
 		
 	self
-		createN: (self numberOfAgents / 2) asInteger
-		randomlyLocatedAloneEntities: ShellingFrog
+		create: (self numberOfAgents / 2) asInteger
+		randomlyLocatedAloneEntitiesOfClass: ShellingFrog
 ]
 
 { #category : 'as yet unclassified' }
@@ -117,5 +117,5 @@ ShellingModel >> numberOfHappyTurtles [
 ShellingModel >> step [
 
 	<control>
-	self askRandom: ShellingAgent toDo: #step
+	(self shuffled: self agents) do: #step
 ]
