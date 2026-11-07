@@ -1,0 +1,5 @@
+{
+	"baseline" : "ShellingModel",
+	"summary" : "Schelling's model of segregation. Turtles and frogs live on a grid, and an agent with too few neighbours of its own kind jumps to a random empty cell. Even a mild preference for similar neighbours leads to strongly segregated neighbourhoods.",
+	"cormas" : "1.0-dev"
+}
