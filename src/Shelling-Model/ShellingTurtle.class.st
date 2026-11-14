@@ -5,11 +5,10 @@ Class {
 	#package : 'Shelling-Model'
 }
 
-{ #category : 'pov' }
-ShellingTurtle >> pov [
+{ #category : 'aspects' }
+ShellingTurtle >> aspectDefault: look [
 
-	<pov>
-	^ super pov
-		color: Color red;
-		yourself
+	<aspect>
+	super aspectDefault: look.
+	look color: Color red
 ]

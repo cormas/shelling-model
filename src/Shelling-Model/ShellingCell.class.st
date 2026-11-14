@@ -5,9 +5,9 @@ Class {
 	#package : 'Shelling-Model'
 }
 
-{ #category : 'pov' }
-ShellingCell >> pov [
+{ #category : 'aspects' }
+ShellingCell >> aspectDefault: look [
 
-	<pov>
-	^ CMPointOfView color: Color black
+	<aspect>
+	look color: Color black
 ]

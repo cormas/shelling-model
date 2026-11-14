@@ -47,6 +47,17 @@ ShellingAgent class >> percentageOfSimilarAgentsWanted: aNumber [
 	percentageOfSimilarAgentsWanted := aNumber
 ]
 
+{ #category : 'aspects' }
+ShellingAgent >> aspectDefault: look [
+
+	<aspect>
+	look
+		shape: #square;
+		size: (self isHappy
+				 ifTrue: [ 1 ]
+				 ifFalse: [ 0.5 ])
+]
+
 { #category : 'testing' }
 ShellingAgent >> isHappy [
 
@@ -63,15 +74,6 @@ ShellingAgent >> move [
 ShellingAgent >> numberOfSimilarNeighbours [
 
 	^ (self similarAgentsWithinRadius: 1) size
-]
-
-{ #category : 'pov' }
-ShellingAgent >> pov [
-	
-	^ CMPointOfView shape: #square size: (
-		self isHappy
-			ifTrue: [ 1 ]
-			ifFalse: [ 0.5 ])
 ]
 
 { #category : 'control' }

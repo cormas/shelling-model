@@ -5,11 +5,10 @@ Class {
 	#package : 'Shelling-Model'
 }
 
-{ #category : 'pov' }
-ShellingFrog >> pov [
+{ #category : 'aspects' }
+ShellingFrog >> aspectDefault: look [
 
-	<pov>
-	^ super pov
-		color: (Color fromHexString: '00b44c');
-		yourself
+	<aspect>
+	super aspectDefault: look.
+	look color: (Color fromHexString: '00b44c')
 ]
