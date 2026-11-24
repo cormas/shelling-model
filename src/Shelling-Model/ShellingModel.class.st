@@ -67,6 +67,29 @@ ShellingModel class >> prefix [
 	^ 'Shelling'
 ]
 
+{ #category : 'charts' }
+ShellingModel >> chartHappiness [
+	"How many agents are happy with their neighbours, turtles and frogs alike?"
+
+	<chart>
+	^ CMChart new
+		  title: 'Happy agents';
+		  yTitle: 'Number of agents';
+		  add: (CMLineSeries new x: #currentTimeStep y: #numberOfHappyAgents;
+				   label: 'Happy agents';
+				   color: (Color fromHexString: 'C2C200');
+				   yourself);
+		  add: (CMLineSeries new x: #currentTimeStep y: #numberOfHappyTurtles;
+				   label: 'Happy turtles';
+				   color: Color red;
+				   yourself);
+		  add: (CMLineSeries new x: #currentTimeStep y: #numberOfHappyFrogs;
+				   label: 'Happy frogs';
+				   color: (Color fromHexString: '00B44C');
+				   yourself);
+		  yourself
+]
+
 { #category : 'init' }
 ShellingModel >> init [
 
@@ -95,21 +118,21 @@ ShellingModel >> numberOfAgents [
 { #category : 'probes' }
 ShellingModel >> numberOfHappyAgents [
 
-	<probeNamed: 'Number of happy agents' color: 'C2C200'>
+	<probe>
 	^ self numberOfHappyTurtles + self numberOfHappyFrogs 
 ]
 
 { #category : 'probes' }
 ShellingModel >> numberOfHappyFrogs [
 
-	<probeNamed: 'Number of happy frogs' color: '00b44c'>
+	<probe>
 	^ (self @@ ShellingFrog) count: [ :each | each isHappy ]
 ]
 
 { #category : 'probes' }
 ShellingModel >> numberOfHappyTurtles [
 
-	<probeNamed: 'Number of happy turtles' color: 'FF0000'>
+	<probe>
 	^ (self @@ ShellingTurtle) count: [ :each | each isHappy ]
 ]
 
